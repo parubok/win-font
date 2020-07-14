@@ -6,7 +6,7 @@
 
   <groupId>org.swingk</groupId>
   <artifactId>win-font</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.0.1-SNAPSHOT</version>
 
   <name>win-font</name>
   <description>Utility to load fonts from MS Windows fonts directory.</description>

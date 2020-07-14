@@ -1,4 +1,4 @@
-package org.swingk;
+package org.swingk.winfont;
 
 /**
  * Enum which enumerates standard Windows 10 fonts.
@@ -16,7 +16,9 @@ public enum WinFont {
     VERDANA("Verdana", "Verdana.ttf"),
     VERDANA_BOLD("Verdana Bold", "Verdanab.ttf"),
     SEGOE_UI("Segoe UI", "Segoeui.ttf"),
-    SEGOE_UI_BOLD("Segoe UI Bold", "Segoeuib.ttf");
+    SEGOE_UI_BOLD("Segoe UI Bold", "Segoeuib.ttf"),
+    TREBUCHET_MS("Trebuchet MS", "Trebuc.ttf"),
+    TREBUCHET_MS_BOLD("Trebuchet MS Bold", "Trebucbd.ttf");
 
     /**
      * Font name.

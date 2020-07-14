@@ -1,5 +1,8 @@
 package org.swingk;
 
+import org.swingk.winfont.WinFont;
+import org.swingk.winfont.WinFontFactory;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;

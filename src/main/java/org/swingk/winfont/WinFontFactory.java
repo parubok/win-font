@@ -1,4 +1,4 @@
-package org.swingk;
+package org.swingk.winfont;
 
 import java.awt.Font;
 import java.nio.file.Files;
@@ -18,7 +18,7 @@ public class WinFontFactory {
     private WinFontFactory() {
     }
 
-    private static void init() throws UnsupportedOperationException {
+    private static void init(WinFont winFont) throws FontUnavailableException {
         if (winFontsDir == null && error == null) {
             Path d = getWinFontsDir();
             if (d != null) {
@@ -28,18 +28,18 @@ public class WinFontFactory {
             }
         }
         if (error != null) {
-            throw new UnsupportedOperationException(error);
+            throw new FontUnavailableException(error, false, winFont);
         }
     }
 
     /**
      * @param winFont Font to load. Not null.
      * @return Font loaded from file in Windows\fonts directory.
-     * @throws UnsupportedOperationException If the font cannot be loaded.
+     * @throws FontUnavailableException If the font cannot be loaded.
      */
-    public static Font getFont(WinFont winFont) throws UnsupportedOperationException {
+    public static Font getFont(WinFont winFont) throws FontUnavailableException {
         Objects.requireNonNull(winFont);
-        init();
+        init(winFont);
         return winFontsDir.getFont(winFont);
     }
 

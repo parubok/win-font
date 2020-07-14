@@ -8,6 +8,9 @@ package org.swingk;
 public enum WinFont {
     ARIAL("Arial", "Arial.ttf"),
     ARIAL_BOLD("Arial Bold", "Arialbd.ttf"),
+    CALIBRI("Calibri", "Calibri.ttf"),
+    CALIBRI_BOLD("Calibri Bold", "Calibrib.ttf"),
+    CALIBRI_LIGHT("Calibri Light", "Calibril.ttf"),
     TAHOMA("Tahoma", "Tahoma.ttf"),
     TAHOMA_BOLD("Tahoma Bold", "Tahomabd.ttf"),
     VERDANA("Verdana", "Verdana.ttf"),

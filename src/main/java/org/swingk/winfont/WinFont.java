@@ -11,6 +11,7 @@ public enum WinFont {
     CALIBRI("Calibri", "Calibri.ttf"),
     CALIBRI_BOLD("Calibri Bold", "Calibrib.ttf"),
     CALIBRI_LIGHT("Calibri Light", "Calibril.ttf"),
+    CANDARA("Candara", "Candara.ttf"),
     COURIER_NEW("Courier New", "Cour.ttf"),
     COURIER_NEW_BOLD("Courier New Bold", "Courbd.ttf"),
     COURIER_NEW_ITALIC("Courier New Italic", "Couri.ttf"),

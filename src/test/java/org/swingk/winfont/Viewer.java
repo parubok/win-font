@@ -1,7 +1,4 @@
-package org.swingk;
-
-import org.swingk.winfont.WinFont;
-import org.swingk.winfont.WinFontFactory;
+package org.swingk.winfont;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -13,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.util.stream.IntStream;
 
 public class Viewer {
     public static void main(String[] args) {
@@ -31,9 +29,7 @@ public class Viewer {
         panel.add(fontCombo);
 
         DefaultComboBoxModel<Float> sizeModel = new DefaultComboBoxModel<>();
-        for (int i = 8; i < 50; i += 2) {
-            sizeModel.addElement((float) i);
-        }
+        IntStream.rangeClosed(8, 48).forEach(i -> sizeModel.addElement((float) i));
         JComboBox<Float> sizeCombo = new JComboBox<>(sizeModel);
         panel.add(sizeCombo);
         sizeModel.setSelectedItem(Float.valueOf(12.0f));

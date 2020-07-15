@@ -6,9 +6,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.EnumMap;
+import java.util.Map;
 import java.util.Objects;
 
 final class FontsDirectory {
+
+    private final Map<WinFont, Font> loadedFonts = new EnumMap<>(WinFont.class);
+
     private final Path dir;
 
     FontsDirectory(Path dir) {
@@ -31,11 +36,17 @@ final class FontsDirectory {
 
     Font getFont(WinFont winFont) throws FontUnavailableException {
         Objects.requireNonNull(winFont);
+        if (loadedFonts.containsKey(winFont)) {
+            return loadedFonts.get(winFont); // already loaded
+        }
         Path fontFile = getFontFile(winFont);
+        Font font;
         try (InputStream is = Files.newInputStream(fontFile)) {
-            return Font.createFont(Font.TRUETYPE_FONT, is);
+            font = Font.createFont(Font.TRUETYPE_FONT, is);
         } catch (IOException | FontFormatException ex) {
             throw new FontUnavailableException("Unable to load font " + winFont.getFontName() + ".", ex, true, winFont);
         }
+        loadedFonts.put(winFont, Objects.requireNonNull(font));
+        return font;
     }
 }

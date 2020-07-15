@@ -10,7 +10,7 @@ import org.swingk.winfont.FontUnavailableException;
 java.awt.Font tahomaFont = null;
 try {
   tahomaFont = WinFontFactory.getFont(WinFont.TAHOMA);
- } catch(FontUnavailableException e) {
+} catch(FontUnavailableException e) {
   tahomaFont = ...; // provide some substitute
- }
+}
 ```

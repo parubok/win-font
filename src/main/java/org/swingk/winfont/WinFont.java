@@ -12,6 +12,7 @@ public enum WinFont {
     CALIBRI_BOLD("Calibri Bold", "Calibrib.ttf"),
     CALIBRI_LIGHT("Calibri Light", "Calibril.ttf"),
     CANDARA("Candara", "Candara.ttf"),
+    CONSOLAS("Consolas", "Consola.ttf"),
     COURIER_NEW("Courier New", "Cour.ttf"),
     COURIER_NEW_BOLD("Courier New Bold", "Courbd.ttf"),
     COURIER_NEW_ITALIC("Courier New Italic", "Couri.ttf"),
@@ -25,18 +26,25 @@ public enum WinFont {
     TREBUCHET_MS("Trebuchet MS", "Trebuc.ttf"),
     TREBUCHET_MS_BOLD("Trebuchet MS Bold", "Trebucbd.ttf");
 
-    /**
-     * Font name.
-     */
-    String name;
+    private String fontName;
+    private String fontFile;
+
+    WinFont(String fontName, String fontFile) {
+        this.fontName = fontName;
+        this.fontFile = fontFile;
+    }
 
     /**
-     * Font file.
+     * For example, "Tahoma Bold".
      */
-    String file;
+    public String getFontName() {
+        return fontName;
+    }
 
-    WinFont(String name, String file) {
-        this.name = name;
-        this.file = file;
+    /**
+     * For example, "Tahomabd.ttf".
+     */
+    public String getFontFile() {
+        return fontFile;
     }
 }

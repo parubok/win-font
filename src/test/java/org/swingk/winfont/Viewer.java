@@ -39,13 +39,17 @@ public class Viewer {
         JTextArea textArea = new JTextArea();
         textArea.setBorder(LineBorder.createGrayLineBorder());
         textArea.setLineWrap(true);
-        textArea.setText(" The quick brown fox jumps over the lazy dog\n THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG");
         contentPanel.add(textArea, BorderLayout.CENTER);
 
         Runnable applyFont = () -> {
             WinFont winFont = (WinFont) fontModel.getSelectedItem();
             float size = (Float) sizeModel.getSelectedItem();
-            textArea.setFont(WinFontFactory.getFont(winFont).deriveFont(size));
+            try {
+                textArea.setText(" The quick brown fox jumps over the lazy dog\n THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG");
+                textArea.setFont(WinFontFactory.getFont(winFont).deriveFont(size));
+            } catch (FontUnavailableException ex) {
+                textArea.setText("Error: " + ex.getMessage());
+            }
         };
         applyFont.run();
         fontCombo.addActionListener(e -> applyFont.run());

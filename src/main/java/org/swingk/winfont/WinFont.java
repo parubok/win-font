@@ -30,8 +30,8 @@ public enum WinFont {
     TREBUCHET_MS("Trebuchet MS", "Trebuc.ttf"),
     TREBUCHET_MS_BOLD("Trebuchet MS Bold", "Trebucbd.ttf");
 
-    private String fontName;
-    private String fontFile;
+    private final String fontName;
+    private final String fontFile;
 
     WinFont(String fontName, String fontFile) {
         this.fontName = fontName;

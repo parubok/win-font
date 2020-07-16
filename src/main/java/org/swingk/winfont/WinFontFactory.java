@@ -48,8 +48,8 @@ public class WinFontFactory {
      * https://support.microsoft.com/en-us/help/314960/how-to-install-or-remove-a-font-in-windows
      * http://stackoverflow.com/questions/4339037/getting-system32-folder-location-in-java
      *
-     * @return Path of Windows fonts directory (usually 'c:\Windows\fonts').
-     * @throws FontUnavailableException If the Windows fonts directory was not found (e.g. on Linux OS) or is not
+     * @return Path of Windows font directory (usually 'c:\Windows\fonts').
+     * @throws FontUnavailableException If the Windows font directory was not found (e.g. on Linux OS) or is not
      * accessible.
      */
     private static Path getWinFontsDir(WinFont winFont) throws FontUnavailableException {

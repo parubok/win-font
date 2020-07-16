@@ -19,3 +19,4 @@ try {
   tahomaFont = ...; // provide some substitute
 }
 ```
+Requires Java 8 or later.

@@ -24,12 +24,12 @@ final class FontsDirectory {
         Objects.requireNonNull(winFont);
         Path fontFile = dir.resolve(winFont.getFontFile());
         if (!Files.exists(fontFile)) {
-            throw new FontUnavailableException("File '" + winFont.getFontFile() + "' does not exist in directory '"
-                    + dir.toString() + "'.", true, winFont);
+            throw new FontUnavailableException("File " + winFont.getFontFile() + " does not exist in directory "
+                    + dir.toString() + ".", true, winFont);
         }
         if (!Files.isReadable(fontFile)) {
-            throw new FontUnavailableException("File '" + winFont.getFontFile() + "' in directory '"
-                    + dir.toString() + "' is not readable.", true, winFont);
+            throw new FontUnavailableException("File " + winFont.getFontFile() + " in directory " + dir.toString()
+                    + " is not readable.", true, winFont);
         }
         return fontFile;
     }

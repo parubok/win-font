@@ -24,6 +24,7 @@ public enum WinFont {
     TAHOMA_BOLD("Tahoma Bold", "Tahomabd.ttf"),
     VERDANA("Verdana", "Verdana.ttf"),
     VERDANA_BOLD("Verdana Bold", "Verdanab.ttf"),
+    VERDANA_ITALIC("Verdana Italic", "Verdanai.ttf"),
     SEGOE_UI("Segoe UI", "Segoeui.ttf"),
     SEGOE_UI_BOLD("Segoe UI Bold", "Segoeuib.ttf"),
     TREBUCHET_MS("Trebuchet MS", "Trebuc.ttf"),

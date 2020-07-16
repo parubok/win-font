@@ -1,3 +1,5 @@
+![Java CI with Maven](https://github.com/parubok/win-font/workflows/Java%20CI%20with%20Maven/badge.svg?branch=master)
+
 Small Java library to obtain instances of `java.awt.Font` for some [standard fonts](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) in Windows font directory (usually `c:\Windows\fonts`).
 
 Main motivation for having this library is to allow using high quality fonts provided by Windows while preventing legal issues, since bundling and redistributing Windows fonts with 3rd party software is usually [forbidden](https://docs.microsoft.com/en-us/typography/fonts/font-faq).

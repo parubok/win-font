@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.Objects;
 
 /**
- * This utility allows to load fonts directly from files in "Windows\fonts" directory.
+ * This utility allows to load fonts from files in "Windows\fonts" directory.
  */
 public class WinFontFactory {
 

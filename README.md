@@ -1,4 +1,4 @@
-Small Java library to obtain instances of `java.awt.Font` for some [standard fonts](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) in Windows fonts directory (usually `c:\Windows\fonts`).
+Small Java library to obtain instances of `java.awt.Font` for some [standard fonts](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) in Windows font directory (usually `c:\Windows\fonts`).
 
 Path to the font directory may be specified via system property `org.swingk.winfont.fontDir` (e.g. for unit testing).
 

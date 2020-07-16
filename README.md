@@ -4,7 +4,7 @@ Path to the font directory may be specified via system property `org.swingk.winf
 
 A viewer application `org.swingk.winfont.Viewer` is available under `test` root.
 
-Main motivation for having this library is to prevent legal issues, since bundling and redistributing Windows fonts with 3rd party software is usually [forbidden](https://docs.microsoft.com/en-us/typography/fonts/font-faq).
+Main motivation for having this library is to allow using high quality fonts provided with Windows while preventing legal issues, since bundling and redistributing Windows fonts with 3rd party software is usually [forbidden](https://docs.microsoft.com/en-us/typography/fonts/font-faq).
 
 Example:
 ```java

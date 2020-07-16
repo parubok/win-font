@@ -52,6 +52,9 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
+          <configuration>
+            <reuseForks>false</reuseForks> <!-- This will make sure to spawn a fresh jvm for each test -->
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>

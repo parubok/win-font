@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -71,19 +70,19 @@ public class WinFontFactory {
                         + dirPropValue, false, winFont);
             }
         } else {
-            // SYSTEMROOT and WINDIR are identical in NT systems, but WINDIR also works for older, 9x kernel-based windows
-            for (String envVar : Arrays.asList("WINDIR", "SystemRoot")) {
-                String envVarValue = System.getenv(envVar);
-                if (envVarValue != null && !envVarValue.isEmpty()) {
+            String envVarValue = System.getenv("WINDIR");
+            if (envVarValue != null) {
+                try {
                     Path envVarPath = Paths.get(envVarValue, "fonts");
                     if (Files.isDirectory(envVarPath)) {
                         fontsDir = envVarPath;
-                        break;
                     }
+                } catch (InvalidPathException ex) {
+                    // do nothing
                 }
             }
             if (fontsDir == null) {
-                throw new FontUnavailableException("Unable to locate Windows fonts directory", false, winFont);
+                throw new FontUnavailableException("Unable to access Windows fonts directory", false, winFont);
             }
         }
         return Objects.requireNonNull(fontsDir);

@@ -20,10 +20,10 @@ public class WinFontFactory {
     private WinFontFactory() {
     }
 
-    private static void init(WinFont winFont) throws FontUnavailableException {
+    private static void init() throws FontUnavailableException {
         if (winFontsDir == null && error == null) {
             try {
-                winFontsDir = new FontsDirectory(getWinFontsDir(winFont));
+                winFontsDir = new FontsDirectory(getWinFontsDir());
             } catch (FontUnavailableException ex) {
                 error = ex;
             }
@@ -40,7 +40,7 @@ public class WinFontFactory {
      */
     public static Font getFont(WinFont winFont) throws FontUnavailableException {
         Objects.requireNonNull(winFont);
-        init(winFont);
+        init();
         return winFontsDir.getFont(winFont);
     }
 
@@ -52,7 +52,7 @@ public class WinFontFactory {
      * @throws FontUnavailableException If the Windows font directory was not found (e.g. on Linux OS) or is not
      * accessible.
      */
-    private static Path getWinFontsDir(WinFont winFont) throws FontUnavailableException {
+    private static Path getWinFontsDir() throws FontUnavailableException {
         Path fontsDir = null;
         String dirPropValue = System.getProperty(DIR_PROP);
         if (dirPropValue != null) {
@@ -61,13 +61,13 @@ public class WinFontFactory {
                 propPath = Paths.get(dirPropValue);
             } catch (InvalidPathException ex) {
                 throw new FontUnavailableException("System property " + DIR_PROP + " points to invalid location: "
-                        + dirPropValue + ".", ex, false, winFont);
+                        + dirPropValue + ".", ex, false);
             }
             if (Files.isDirectory(propPath)) {
                 fontsDir = propPath;
             } else {
                 throw new FontUnavailableException("System property " + DIR_PROP + " points to a non-directory: "
-                        + dirPropValue + ".", false, winFont);
+                        + dirPropValue + ".", false);
             }
         } else {
             String envVarValue = System.getenv("WINDIR");
@@ -82,7 +82,7 @@ public class WinFontFactory {
                 }
             }
             if (fontsDir == null) {
-                throw new FontUnavailableException("Unable to access Windows fonts directory.", false, winFont);
+                throw new FontUnavailableException("Unable to access Windows fonts directory.", false);
             }
         }
         return Objects.requireNonNull(fontsDir);

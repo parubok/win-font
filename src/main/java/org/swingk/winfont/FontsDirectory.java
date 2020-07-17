@@ -20,16 +20,16 @@ final class FontsDirectory {
         this.dir = Objects.requireNonNull(dir);
     }
 
-    private Path getFontFile(WinFont winFont) throws FontUnavailableException {
-        Objects.requireNonNull(winFont);
-        Path fontFile = dir.resolve(winFont.getFontFile());
+    private Path getFontFile(String fontFileName) throws FontUnavailableException {
+        Objects.requireNonNull(fontFileName);
+        Path fontFile = dir.resolve(fontFileName);
         if (!Files.exists(fontFile)) {
-            throw new FontUnavailableException("File " + winFont.getFontFile() + " does not exist in directory "
-                    + dir.toString() + ".", true, winFont);
+            throw new FontUnavailableException("File " + fontFileName + " does not exist in directory "
+                    + dir.toString() + ".", true);
         }
         if (!Files.isReadable(fontFile)) {
-            throw new FontUnavailableException("File " + winFont.getFontFile() + " in directory " + dir.toString()
-                    + " is not readable.", true, winFont);
+            throw new FontUnavailableException("File " + fontFileName + " in directory " + dir.toString()
+                    + " is not readable.", true);
         }
         return fontFile;
     }
@@ -39,12 +39,12 @@ final class FontsDirectory {
         if (loadedFonts.containsKey(winFont)) {
             return loadedFonts.get(winFont); // already loaded
         }
-        Path fontFile = getFontFile(winFont);
+        Path fontFile = getFontFile(winFont.getFontFile());
         Font font;
         try (InputStream is = Files.newInputStream(fontFile)) {
             font = Font.createFont(Font.TRUETYPE_FONT, is);
         } catch (IOException | FontFormatException ex) {
-            throw new FontUnavailableException("Unable to load font " + winFont.getFontName() + ".", ex, true, winFont);
+            throw new FontUnavailableException("Unable to load font " + winFont.getFontName() + ".", ex, true);
         }
         loadedFonts.put(winFont, Objects.requireNonNull(font));
         return font;

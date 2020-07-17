@@ -5,7 +5,7 @@
 
   <groupId>org.swingk</groupId>
   <artifactId>win-font</artifactId>
-  <version>0.0.7</version>
+  <version>0.0.8-SNAPSHOT</version>
 
   <name>win-font</name>
   <description>Utility to load fonts from MS Windows fonts directory.</description>
@@ -21,7 +21,7 @@
     <connection>scm:git:git@github.com:parubok/win-font</connection>
     <url>scm:git:git@github.com:parubok/win-font</url>
     <developerConnection>scm:git:git@github.com:parubok/win-font</developerConnection>
-    <tag>v0.0.7</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <dependencies>

@@ -14,7 +14,7 @@ public class WinFontFactory {
 
     public static final String DIR_PROP = "org.swingk.winfont.fontDir";
 
-    private static FontsDirectory winFontsDir;
+    private static FontDirectory winFontsDir;
     private static FontUnavailableException error;
 
     private WinFontFactory() {
@@ -23,7 +23,7 @@ public class WinFontFactory {
     private static void init() throws FontUnavailableException {
         if (winFontsDir == null && error == null) {
             try {
-                winFontsDir = new FontsDirectory(getWinFontsDir());
+                winFontsDir = new FontDirectory(getWinFontsDir());
             } catch (FontUnavailableException ex) {
                 error = ex;
             }

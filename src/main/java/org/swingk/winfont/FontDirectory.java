@@ -10,13 +10,15 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
 
-final class FontsDirectory {
+import static java.nio.file.Files.newInputStream;
+
+final class FontDirectory {
 
     private final Map<WinFont, Font> loadedFonts = new EnumMap<>(WinFont.class);
 
     private final Path dir;
 
-    FontsDirectory(Path dir) {
+    FontDirectory(Path dir) {
         this.dir = Objects.requireNonNull(dir);
     }
 
@@ -24,11 +26,11 @@ final class FontsDirectory {
         Objects.requireNonNull(fontFileName);
         Path fontFile = dir.resolve(fontFileName);
         if (!Files.exists(fontFile)) {
-            throw new FontUnavailableException("File " + fontFileName + " does not exist in directory "
+            throw new FontUnavailableException("File " + fontFileName + " does not exist in "
                     + dir.toString() + ".", true);
         }
         if (!Files.isReadable(fontFile)) {
-            throw new FontUnavailableException("File " + fontFileName + " in directory " + dir.toString()
+            throw new FontUnavailableException("File " + fontFileName + " in " + dir.toString()
                     + " is not readable.", true);
         }
         return fontFile;
@@ -41,7 +43,7 @@ final class FontsDirectory {
         }
         Path fontFile = getFontFile(winFont.getFontFile());
         Font font;
-        try (InputStream is = Files.newInputStream(fontFile)) {
+        try (InputStream is = newInputStream(fontFile)) {
             font = Font.createFont(Font.TRUETYPE_FONT, is);
         } catch (IOException | FontFormatException ex) {
             throw new FontUnavailableException("Unable to load font " + winFont.getFontName() + ".", ex, true);

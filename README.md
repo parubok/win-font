@@ -1,5 +1,5 @@
 ![Java CI with Maven](https://github.com/parubok/win-font/workflows/Java%20CI%20with%20Maven/badge.svg?branch=master)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/parubok/win-font/LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/parubok/win-font/blob/master/LICENSE)
 
 Small Java library to obtain instances of `java.awt.Font` for some [standard fonts](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) in Windows font directory (usually `c:\Windows\fonts`).
 

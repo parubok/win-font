@@ -13,6 +13,8 @@ public enum WinFont {
     CALIBRI_LIGHT("Calibri Light", "Calibril.ttf"),
     CANDARA("Candara", "Candara.ttf"),
     CONSOLAS("Consolas", "Consola.ttf"),
+    CONSOLAS_ITALIC("Consolas Italic", "Consolai.ttf"),
+    CONSOLAS_BOLD("Consolas Bold", "Consolab.ttf"),
     CORBEL("Corbel", "Corbel.ttf"),
     CORBEL_BOLD("Corbel Bold", "Corbelb.ttf"),
     CORBEL_ITALIC("Corbel Italic", "Corbeli.ttf"),
